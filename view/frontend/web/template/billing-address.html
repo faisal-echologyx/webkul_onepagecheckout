@@ -9,13 +9,14 @@
 * @license   https://store.webkul.com/license.html
 */
 -->
+<div class="show-active-payment-method-content"></div>
 <div class="checkout-billing-address">
 
     <div class="billing-address-same-as-shipping-block field choice" data-bind="visible: canUseShippingAddress()">
         <input type="checkbox" name="billing-address-same-as-shipping"
-               data-bind="checked: isAddressSameAsShipping, click: useShippingAddress, attr: {id: 'billing-address-same-as-shipping-' + getCode($parent)}"/>
+               data-bind="checked: isAddressSameAsShipping, click: useShippingAddress, attr: {id: 'billing-address-same-as-shipping-' + getCode($parent)}" style="accent-color: #000;"/>
         <label data-bind="attr: {for: 'billing-address-same-as-shipping-' + getCode($parent)}"><span
-                data-bind="i18n: 'My billing and shipping address are the same'"></span></label>
+                data-bind="i18n: 'Billing same as delivery Address'"></span></label>
     </div>
     <div if="!isAddressSameAsShipping()">
         <render args="detailsTemplate"/>

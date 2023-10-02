@@ -141,9 +141,10 @@ class CartManagement implements \Webkul\OneStepCheckout\Api\CartManagementInterf
         $response->setShippingMethods(
             $this->getShippingMethods($quote, $this->addressInterface->getData())
         );
-        $response->setPaymentMethods(
-            $this->paymentMethodManagement->getList($cartId)
-        );
+        // $response->setPaymentMethods(
+        //     $this->paymentMethodManagement->getList($cartId)
+        // );
+        $response->setPaymentMethods([]);
         $response->setIsVirtual($quote->getIsVirtual());
         $totals = $this->cartTotalsRepository->get($quote->getId());
 

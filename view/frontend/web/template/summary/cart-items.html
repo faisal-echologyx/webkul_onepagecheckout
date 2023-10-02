@@ -1,4 +1,4 @@
-<div class="block items-in-cart" data-bind="mageInit: {'collapsible':{'openedState': 'active', 'active': isItemsBlockExpanded()}}">
+<div class="block items-in-cart echo-disable" data-bind="mageInit: {'collapsible':{'openedState': '', '': isItemsBlockExpanded()}}">
     <div class="title" data-role="title">
         <strong role="heading" aria-level="1">
             <translate args="maxCartItemsToDisplay" if="maxCartItemsToDisplay < getCartLineItemsCount()"/>
@@ -8,7 +8,7 @@
             <translate args="'Items in Cart'" if="getCartLineItemsCount() > 1"/>
         </strong>
     </div>
-    <div class="content minicart-items" data-role="content">
+    <div class="content minicart-items" data-role="content" style="padding-top: 40px;">
         <div class="minicart-items-wrapper overflowed">
             <ol class="minicart-items">
                 <each args="items()">

@@ -1,0 +1,44 @@
+<!-- ko foreach: getRegion('authentication') -->
+<!-- ko template: getTemplate() --><!-- /ko -->
+<!--/ko-->
+
+<!-- ko foreach: getRegion('estimation') -->
+    <!-- ko template: getTemplate() --><!-- /ko -->
+<!--/ko-->
+
+<!-- ko foreach: getRegion('messages') -->
+    <!-- ko template: getTemplate() --><!-- /ko -->
+<!--/ko-->
+<div class="opc-wrapper one-page-checkout-wrapper">
+    <div class="opc opc-one-page-checkout-steps opc-container" id="checkoutSteps">
+        <div class="opc-row">
+            <div class="opcol-10 opcol-sm-10 opcol-md-6 opcol-lg-7">
+                <if args="visible() ==  true">
+                    <div class="opcol opcol-12" data-bind="scope: 'checkout.steps.shipping-step.shippingAddress'">
+                        <!-- ko template: addressTemplate --><!-- /ko -->
+                    </div>
+                    <div class="opcol opcol-12" data-bind="scope: 'checkout.steps.shipping-step'">
+                        <div class="opc-group colps-group">
+                             <!-- ko template: getTemplate() --><!-- /ko -->
+                        </div>
+                    </div>
+                </if>
+                <div class="opcol opcol-12" data-bind="scope: 'checkout.steps.billing-step'">
+                    <div class="opc-group colps-group">
+                        <!-- ko template: getTemplate() --><!-- /ko -->
+                    </div>
+                </div>
+            </div>
+            <div class="opcol-10 opcol-sm-10 opcol-md-5 opcol-lg-4">
+                <div class="opcol opcol-12">
+                    <div class="opc-group">
+                        <!-- ko foreach: getRegion('sidebar') -->
+                            <!-- ko template: getTemplate() --><!-- /ko -->
+                        <!--/ko-->
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

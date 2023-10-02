@@ -10,13 +10,20 @@
 */
 -->
 <li id="payment" role="presentation" class="opc-checkout-payment-method checkout-payment-method" data-bind="fadeVisible: isVisible">
-    <div class="step-title colps-title"
-         translate="'Payment Methods'"
-         data-role="title" />
+    <div class="border-info-title" data-target="#checkout-step-payment" data-toggle="collapse" aria-expanded="true">
+        <div class="left-title">
+            <i class="fa-solid fa-credit-card"></i>
+            <div class="step-title colps-title"
+            translate="'Payment Method'"
+            data-role="title"></div>
+        </div>
+        <i class="fa-solid fa-angle-down"></i>
+    </div>
     <div id="checkout-step-payment"
-         class="step-content colps-content"
+         class="step-content colps-content collapse in"
          data-role="content"
          role="tabpanel"
+         aria-expanded="true"
          aria-hidden="false"
          data-bind="blockLoader: isLoading">
         <!-- ko if: (quoteIsVirtual() === true) -->
