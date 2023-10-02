@@ -1,0 +1,26 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+/** @var \Magento\Multishipping\Block\Checkout\Overview $block */
+?>
+<?php $errors = $block->getCheckoutData()->getAddressErrors(); ?>
+<?php foreach ($errors as $addressId => $error): ?>
+    <div class="message message-error error">
+        <?= $block->escapeHtml($error); ?>
+        <?= $block->escapeHtml(__('Please see')); ?>
+        <a href="#<?= $block->escapeHtml($block->getCheckoutData()->getAddressAnchorName($addressId)); ?>">
+            <?= $block->escapeHtml(__('details below')); ?></a>.
+    </div>
+<?php endforeach;?>
+<form 
+      style="width:600px;float:right;"
+      action="<?= $block->escapeUrl($block->getUrl('multishipping/checkout/overview')); ?>"
+      method="post"
+      id="review-order-form"
+      data-mage-init='{"orderOverview": {}, "validation":{}}'
+      class="form multicheckout order-review">
+
+</form>

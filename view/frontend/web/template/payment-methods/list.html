@@ -1,0 +1,22 @@
+<!--
+/**
+* Webkul Software.
+*
+* @category  Webkul
+* @package   Webkul_OneStepCheckout
+* @author    Webkul
+* @copyright Copyright (c) Webkul Software Private Limited (https://webkul.com)
+* @license   https://store.webkul.com/license.html
+*/
+ -->
+<div if="isPaymentMethodsAvailable()"
+     class="items payment-methods">
+    <div repeat="foreach: paymentGroupsList, item: '$group'"
+         class="payment-group">
+        <each args="data: getRegion($group().displayArea), as: 'method'" render=""/>
+    </div>
+</div>
+<div ifnot="isPaymentMethodsAvailable()"
+     class="no-payments-block"
+     translate="'No Payment Methods'">
+</div>

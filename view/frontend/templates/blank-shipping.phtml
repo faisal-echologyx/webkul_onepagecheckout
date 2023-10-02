@@ -1,0 +1,34 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+?>
+<?php
+/**
+ * Multishipping checkout shipping template
+ *
+ * @var $block \Magento\Multishipping\Block\Checkout\Shipping
+ */
+?>
+
+<div id="wk_osc_shipping_div"
+class="wk-display-none"
+style="margin-left:10px;20px;float:left;width:33%;margin-bottom: 75px;">
+<div class="wk_osc_title"> Shipping </div>
+<form
+action="<?= $block->escapeUrl($block->getPostActionUrl()) ?>"
+method="post"
+id="shipping_method_form" class="form multicheckout shipping">
+
+</form>
+</div>
+
+<script type="text/x-magento-init">
+    {
+        "*": {
+            "shippingAccordion": ""
+        }
+    }
+</script>

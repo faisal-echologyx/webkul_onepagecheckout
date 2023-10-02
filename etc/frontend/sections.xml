@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Webkul Software.
+ *
+ * @category  Webkul
+ * @package   Webkul_OneStepCheckout
+ * @author    Webkul
+ * @copyright Copyright (c) Webkul Software Private Limited (https://webkul.com)
+ * @license   https://store.webkul.com/license.html
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Customer:etc/sections.xsd">
+    <action name="cms/index/index">
+        <section name="customer"/>
+        <section name="merge-quote"/>
+    </action>
+    <action name="catalog/product/view">
+        <section name="customer"/>
+        <section name="merge-quote"/>
+    </action>
+    <action name="checkout/cart/add">
+        <section name="cart"/>
+    </action>
+    <action name="onestepcheckout/multishipping/removeItem">
+        <section name="cart"/>
+    </action>
+    <action name="wishlist/index/index">
+        <section name="merge-quote"/>
+        <section name="cart"/>
+    </action>
+    <action name="wishlist/index/cart">
+        <section name="merge-quote"/>
+        <section name="cart"/>
+    </action>
+    <action name="wishlist/index/fromcart">
+        <section name="merge-quote"/>
+        <section name="cart"/>
+    </action>
+    <action name="wishlist/index/allcart">
+        <section name="merge-quote"/>
+        <section name="cart"/>
+    </action>
+
+    <action name="wishlist/shared/allcart">
+        <section name="merge-quote"/>
+        <section name="cart"/>
+    </action>
+    <action name="wishlist/shared/cart">
+        <section name="merge-quote"/>
+        <section name="cart"/>
+    </action>
+</config>

@@ -1,0 +1,35 @@
+<?php
+/**
+ * Webkul Software.
+ *
+ * @category  Webkul
+ * @package   Webkul_OneStepCheckout
+ * @author    Webkul
+ * @copyright Copyright (c) Webkul Software Private Limited (https://webkul.com)
+ * @license   https://store.webkul.com/license.html
+ */
+
+?>
+<?php
+/**
+ * Add Buy Now template
+ *
+ * @var $block \Magento\Catalog\Block\Product\View
+ */
+?>
+<?php $_product = $block->getProduct();?>
+<?php if ($_product->isSaleable() &&
+    $_product->getTypeId() != 'booking' &&
+    $_product->getTypeId() != 'hotelbooking'): ?>
+
+    <div class="buy-now-div" id="buy-now" data-bind="scope:'buy-now'">
+        <!-- ko template: getTemplate() --><!-- /ko -->
+    </div>
+    <script type="text/x-magento-init">
+        {
+            "#buy-now": {
+                "Magento_Ui/js/core/app": <?= /* @escapeNotVerified */ $block->getJsLayout();?>
+            }
+        }
+    </script>
+<?php endif; ?>

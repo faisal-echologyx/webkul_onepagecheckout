@@ -1,0 +1,46 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+/** @var \Magento\Multishipping\Block\Checkout\Address\Select $block */
+?>
+<div id="wrapper_billing_select">
+    <div class="multicheckout">
+        <div class="block block-billing wk_block-billing_all">
+        <?php foreach ($block->getAddress() as $address): ?>
+            <div 
+                class="wk_box-billing-address unselect_box_billing_address"
+                data-link="<?= $block->escapeUrl($block->getSetAddressUrl($address)); ?>">
+                <div class="box-content">
+                    <address>
+                        <?= $block->getAddressAsHtml($address) ?>
+                        <?php if ($block->isAddressDefaultBilling($address)): ?>
+                            <br /><strong><?= $block->escapeHtml(__('Default Billing')); ?></strong>
+                        <?php endif; ?>
+                        <?php if ($block->isAddressDefaultShipping($address)): ?>
+                            <br /><strong><?= $block->escapeHtml(__('Default Shipping')); ?></strong>
+                        <?php endif; ?>
+                    </address>
+                </div>
+                <div class="box-actions">
+                    <a href="<?= $block->escapeUrl($block->getEditAddressUrl($address)); ?>" class="action edit">
+                        <span><?= $block->escapeHtml(__('Edit Address')); ?></span>
+                    </a>
+                </div>
+            </div>
+        <?php endforeach; ?>
+        </div>
+    </div>
+</div>
+<script type="text/x-magento-init">
+    {
+        ".action": {
+            "address": {
+                "addAddress": "button[role='add-address']",
+                "addAddressLocation": "<?= $block->escapeUrl($block->getAddNewUrl()); ?>"
+            }
+        }
+    }
+</script>

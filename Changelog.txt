@@ -1,0 +1,40 @@
+Legend
+
++ Features
+- Bugs
+
+-------------------------------- Version 3.0.2 --------------------------------------
+
+	+ 	Compatible with Magento2 Amazon Pay Module 5.*
+
+-------------------------------- Version 3.0.1 --------------------------------------
+
+	+	Design/layouts updated
+	+	Admin can change the checkout page layout.
+	+	Admin can change the checkout page title.
+	+	Admin can enable google address autocomplete.
+	+	Admin can enable collapsible blocks.
+
+-------------------------------- Version 3.0.0 --------------------------------------
+
+	+ 	Compatible with Magento 2.3.*
+
+-------------------------------- Version 2.0.3 --------------------------------------
+
+	+ 	Buy now feature added.
+
+-------------------------------- Version 2.0.2 --------------------------------------
+
+	+ 	Compatible with Magento version 2.2.*.
+
+-------------------------------- Version 2.0.1 --------------------------------------
+
+	+ 	Add GST field at checkout.
+	+	Admin can update GST from customer account.
+	+	Customer can update GST from his account.
+
+-------------------------------- Version 2.0.0 --------------------------------------
+
+	+ 	Enable/disable One Step Checkout from admin panel.
+	+ 	Buyer can make order in one step.
+	+	Dynamic loading by knockout.js.

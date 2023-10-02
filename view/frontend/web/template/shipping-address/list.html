@@ -1,0 +1,23 @@
+<!--
+/**
+* Webkul Software.
+*
+* @category  Webkul
+* @package   Webkul_OneStepCheckout
+* @author    Webkul
+* @copyright Copyright (c) Webkul Software Private Limited (https://webkul.com)
+* @license   https://store.webkul.com/license.html
+*/
+-->
+
+<!-- ko if: (visible)-->
+<div class="field addresses">
+    <div class="control">
+        <div class="opc-shipping-address-items shipping-address-items">
+            <!-- ko foreach: { data: elems, as: 'element' } -->
+            <!-- ko template: element.getTemplate() --><!-- /ko -->
+            <!-- /ko -->
+        </div>
+    </div>
+</div>
+<!-- /ko -->

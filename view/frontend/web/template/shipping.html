@@ -1,0 +1,54 @@
+<!--
+/**
+* Webkul Software.
+*
+* @category  Webkul
+* @package   Webkul_OneStepCheckout
+* @author    Webkul
+* @copyright Copyright (c) Webkul Software Private Limited (https://webkul.com)
+* @license   https://store.webkul.com/license.html
+*/
+-->
+
+<!--Shipping method template Webkul OPC-->
+<li id="opc-shipping_method"
+    class="checkout-shipping-method"
+    data-bind="fadeVisible: visible(), blockLoader: isLoading"
+    role="presentation">
+    <div class="checkout-shipping-method">
+        <div class="step-title colps-title"
+             translate="'Shipping Methods'"
+             data-role="title" />
+
+        <div class="colps-content">
+            <each args="getRegion('before-shipping-method-form')" render="" />
+
+            <div id="checkout-step-shipping_method"
+                class="step-content"
+                data-role="content"
+                role="tabpanel"
+                aria-hidden="false">
+                <form id="co-shipping-method-form"
+                    class="form methods-shipping"
+                    if="rates().length"
+                    submit="setShippingInformation"
+                    novalidate="novalidate">
+
+                    <render args="shippingMethodListTemplate"/>
+
+                    <div id="onepage-checkout-shipping-method-additional-load">
+                        <each args="getRegion('shippingAdditional')" render="" />
+                    </div>
+                    <div role="alert"
+                        if="errorValidationMessage().length"
+                        class="message notice">
+                        <span text="errorValidationMessage()" />
+                    </div>
+                </form>
+                <div class="no-quotes-block"
+                    ifnot="rates().length > 0"
+                    translate="'Sorry, no quotes are available for this order at this time'" />
+            </div>
+        </div>
+    </div>
+</li>

@@ -1,0 +1,28 @@
+<!--
+/**
+* Webkul Software.
+*
+* @category  Webkul
+* @package   Webkul_OneStepCheckout
+* @author    Webkul
+* @copyright Copyright (c) Webkul Software Private Limited (https://webkul.com)
+* @license   https://store.webkul.com/license.html
+*/
+-->
+<div class="place-order">
+    <!-- ko if: message().length > 0 -->
+    <div class="message notice">
+        <span><!-- ko text: message()--><!-- /ko --></span>
+    </div>
+    <!-- /ko -->
+    <div class="actions-toolbar place-order">
+        <div class="primary">
+            <button class="action primary checkout" type="button" data-bind="
+                    click: placeOrder,
+                    attr: {title: $t('Place Order')}
+                    " title="Place Order">
+                <span data-bind="i18n: 'Place Order'"></span>
+            </button>
+        </div>
+    </div>
+</div>

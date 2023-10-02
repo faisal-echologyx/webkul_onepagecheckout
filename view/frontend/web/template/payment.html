@@ -1,0 +1,55 @@
+<!--
+/**
+* Webkul Software.
+*
+* @category  Webkul
+* @package   Webkul_OneStepCheckout
+* @author    Webkul
+* @copyright Copyright (c) Webkul Software Private Limited (https://webkul.com)
+* @license   https://store.webkul.com/license.html
+*/
+-->
+<li id="payment" role="presentation" class="opc-checkout-payment-method checkout-payment-method" data-bind="fadeVisible: isVisible">
+    <div class="step-title colps-title"
+         translate="'Payment Methods'"
+         data-role="title" />
+    <div id="checkout-step-payment"
+         class="step-content colps-content"
+         data-role="content"
+         role="tabpanel"
+         aria-hidden="false"
+         data-bind="blockLoader: isLoading">
+        <!-- ko if: (quoteIsVirtual() === true) -->
+            <!-- ko foreach: getRegion('customer-email') -->
+                <!-- ko template: getTemplate() --><!-- /ko -->
+            <!--/ko-->
+        <!--/ko-->
+        <form id="co-payment-form" class="opc-opc-form-for-payments form payments" novalidate="novalidate">
+            <input data-bind='attr: {value: getFormKey()}' type="hidden" name="form_key"/>
+            <fieldset class="fieldset">
+                <legend class="legend">
+                    <span data-bind="i18n: 'Payment Information'"></span>
+                </legend> <!-- <br /> -->
+                <!-- ko foreach: getRegion('beforeMethods') -->
+                    <!-- ko template: getTemplate() --><!-- /ko -->
+                <!-- /ko -->
+                <div id="checkout-payment-method-load" class="opc-payment" data-bind="visible: isPaymentMethodsAvailable">
+                    <!-- ko foreach: getRegion('payment-methods-list') -->
+                        <!-- ko template: getTemplate() --><!-- /ko -->
+                    <!-- /ko -->
+                </div>
+                <div class="opc-no-quotes-block no-quotes-block" data-bind="visible: isPaymentMethodsAvailable() == false">
+                    <!-- if: (isAvailable) -->
+                        <!-- ko i18n: 'Please complete previous information to select payment method.'--><!-- /ko -->
+                    <!--/ko-->
+                    <!-- if: (!isAvailable) -->
+                        <!-- ko i18n: 'No Payment method available.'--><!-- /ko -->
+                    <!--/ko-->
+                </div>
+                <!-- ko foreach: getRegion('afterMethods') -->
+                    <!-- ko template: getTemplate() --><!-- /ko -->
+                <!-- /ko -->
+            </fieldset>
+        </form>
+    </div>
+</li>

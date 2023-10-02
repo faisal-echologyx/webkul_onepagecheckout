@@ -1,0 +1,254 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Webkul Software.
+ *
+ * @category  Webkul
+ * @package   Webkul_OneStepCheckout
+ * @author    Webkul
+ * @copyright Copyright (c) Webkul Software Private Limited (https://webkul.com)
+ * @license   https://store.webkul.com/license.html
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="checkout" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <update handle="checkout_index_index"/>
+    <head>
+        <css src="Webkul_OneStepCheckout::css/grid_opc.css"/>
+        <css src="Webkul_OneStepCheckout::css/material-icons.css"/>
+    </head>
+    <body>
+        <referenceBlock name="checkout.root" >
+            <arguments>
+                <argument name="jsLayout" xsi:type="array">
+                    <item name="components" xsi:type="array">
+                        <item name="checkout" xsi:type="array">
+                            <item name="component" xsi:type="string">Webkul_OneStepCheckout/js/view/checkout-component</item>
+                            <item name="config" xsi:type="array">
+                                <item name="template" xsi:type="helper" helper="Webkul\OneStepCheckout\Helper\Data::getLayoutType"/>
+                            </item>
+                            <item name="children" xsi:type="array">
+                                <item name="errors" xsi:type="array">
+                                    <item name="sortOrder" xsi:type="string">0</item>
+                                    <item name="component" xsi:type="string">Magento_Ui/js/view/messages</item>
+                                    <item name="displayArea" xsi:type="string">messages</item>
+                                </item>
+                                <item name="autocomplete" xsi:type="array">
+                                    <item name="sortOrder" xsi:type="string">0</item>
+                                    <item name="component" xsi:type="string">Webkul_OneStepCheckout/js/view/autocomplete</item>
+                                </item>
+                                <item name="collepsible" xsi:type="array">
+                                    <item name="sortOrder" xsi:type="string">0</item>
+                                    <item name="component" xsi:type="string">Webkul_OneStepCheckout/js/view/collapsible</item>
+                                </item>
+                                <item name="authentication" xsi:type="array">
+                                    <item name="sortOrder" xsi:type="string">1</item>
+                                    <item name="component" xsi:type="string">Webkul_OneStepCheckout/js/view/authentication</item>
+                                    <item name="displayArea" xsi:type="string">authentication</item>
+                                </item>
+                                <item name="steps" xsi:type="array">
+                                    <item name="children" xsi:type="array">
+                                        <item name="shipping-step" xsi:type="array">
+                                            <item name="sortOrder" xsi:type="string">1</item>
+                                            <item name="children" xsi:type="array">
+                                                <item name="shippingAddress" xsi:type="array">
+                                                    <item name="config" xsi:type="array">
+                                                        <item name="component" xsi:type="string">Webkul_OneStepCheckout/js/view/shipping</item>
+                                                    </item>
+                                                    <item name="provider" xsi:type="string">checkoutProvider</item>
+                                                    <item name="sortOrder" xsi:type="string">1</item>
+                                                    <item name="children" xsi:type="array">
+                                                        <item name="customer-email" xsi:type="array">
+                                                            <!-- remove to make this compatible with amazon pay -->
+                                                            <item name="component" xsi:type="string">Webkul_OneStepCheckout/js/view/form/element/email</item>
+                                                        </item>
+                                                        <item name="after-login-form" xsi:type="array">
+                                                            <item name="component" xsi:type="string">uiComponent</item>
+                                                            <item name="displayArea" xsi:type="string">after-login-form</item>
+                                                            <item name="children" xsi:type="array">
+                                                                <!-- before form fields -->
+                                                            </item>
+                                                        </item>
+                                                        <item name="shipping-address-fieldset" xsi:type="array">
+                                                            <item name="children" xsi:type="array">
+                                                                <item name="telephone" xsi:type="array">
+                                                                    <item name="sortOrder" xsi:type="string">65</item>
+                                                                </item>
+                                                            </item>
+                                                        </item>
+                                                        <item name="address-list" xsi:type="array">
+                                                            <item name="config" xsi:type="array">
+                                                                <item name="component" xsi:type="string">Webkul_OneStepCheckout/js/view/shipping-address/list</item>
+                                                            </item>
+                                                        </item>
+                                                    </item>
+                                                </item>
+                                            </item>
+                                        </item>
+                                        <item name="billing-step" xsi:type="array">
+                                            <item name="children" xsi:type="array">
+                                                <item name="payment" xsi:type="array">
+                                                    <item name="sortOrder" xsi:type="string">2</item>
+                                                    <item name="config" xsi:type="array">
+                                                        <item name="component" xsi:type="string">Webkul_OneStepCheckout/js/view/payment</item>
+                                                    </item>
+                                                    <item name="children" xsi:type="array">
+                                                        <item name="customer-email" xsi:type="array">
+                                                            <item name="component" xsi:type="string">Webkul_OneStepCheckout/js/view/form/element/email</item>
+                                                            <item name="displayArea" xsi:type="string">customer-email</item>
+                                                            <item name="tooltip" xsi:type="array">
+                                                                <item name="description" xsi:type="string" translate="true">We'll send your order confirmation here.</item>
+                                                            </item>
+                                                            <item name="children" xsi:type="array">
+                                                                <item name="before-login-form" xsi:type="array">
+                                                                    <item name="component" xsi:type="string">uiComponent</item>
+                                                                    <item name="displayArea" xsi:type="string">before-login-form</item>
+                                                                    <item name="children" xsi:type="array">
+                                                                        <!-- before login form fields -->
+                                                                    </item>
+                                                                </item>
+                                                                <item name="additional-login-form-fields" xsi:type="array">
+                                                                    <item name="component" xsi:type="string">uiComponent</item>
+                                                                    <item name="displayArea" xsi:type="string">additional-login-form-fields</item>
+                                                                    <item name="children" xsi:type="array">
+                                                                        <!-- additional login form fields -->
+                                                                    </item>
+                                                                </item>
+                                                            </item>
+                                                        </item>
+                                                        <item name="payments-list" xsi:type="array">
+                                                            <item name="component" xsi:type="string">Webkul_OneStepCheckout/js/view/payment/list</item>
+                                                            <item name="displayArea" xsi:type="string">payment-methods-list</item>
+                                                            <item name="children" xsi:type="array">
+                                                                <item name="before-place-order" xsi:type="array">
+                                                                    <item name="config" xsi:type="array">
+                                                                        <item name="componentDisabled" xsi:type="boolean">true</item>
+                                                                    </item>
+                                                                </item>
+                                                            </item>
+                                                        </item>
+                                                        <item name="afterMethods" xsi:type="array">
+                                                            <item name="children" xsi:type="array">
+                                                                <item name="discount" xsi:type="array">
+                                                                    <item name="config" xsi:type="array">
+                                                                        <item name="componentDisabled" xsi:type="boolean">true</item>
+                                                                    </item>
+                                                                </item>
+                                                            </item>
+                                                        </item>
+
+                                                    </item>
+                                                </item>
+                                            </item>
+                                        </item>
+                                    </item>
+                                </item>
+                                <item name="sidebar" xsi:type="array">
+                                    <item name="sortOrder" xsi:type="string">1</item>
+                                    <item name="component" xsi:type="string">Magento_Checkout/js/view/sidebar</item>
+                                    <item name="displayArea" xsi:type="string">sidebar</item>
+                                    <item name="config" xsi:type="array">
+                                        <item name="template" xsi:type="string">Webkul_OneStepCheckout/sidebar</item>
+                                        <item name="deps" xsi:type="array">
+                                            <item name="0" xsi:type="string">checkout.steps</item>
+                                        </item>
+                                    </item>
+                                    <item name="children" xsi:type="array">
+                                        <item name="summary" xsi:type="array">
+                                            <item name="component" xsi:type="string">Magento_Checkout/js/view/summary</item>
+                                            <item name="displayArea" xsi:type="string">summary</item>
+                                            <item name="config" xsi:type="array">
+                                                <item name="template" xsi:type="string">Webkul_OneStepCheckout/summary</item>
+                                            </item>
+                                            <item name="children" xsi:type="array">
+                                                <item name="itemsBefore" xsi:type="array">
+                                                   <item name="sortOrder" xsi:type="string">10</item>
+                                                </item>
+                                                <item name="cart_items" xsi:type="array">
+                                                    <item name="sortOrder" xsi:type="string">15</item>
+                                                    <item name="component" xsi:type="string">Webkul_OneStepCheckout/js/view/summary/cart-items</item>
+                                                    <item name="children" xsi:type="array">
+                                                        <item name="details" xsi:type="array">
+                                                            <item name="component" xsi:type="string">Webkul_OneStepCheckout/js/view/summary/item/details</item>
+                                                        </item>
+                                                    </item>
+                                                </item>
+                                                <item name="itemsAfter" xsi:type="array">
+                                                    <item name="sortOrder" xsi:type="string">20</item>
+                                                </item>
+                                                <item name="totals" xsi:type="array">
+                                                    <item name="sortOrder" xsi:type="string">30</item>
+                                                </item>
+                                                <item name="place-order-discount" xsi:type="array">
+                                                    <item name="sortOrder" xsi:type="string">25</item>
+                                                    <item name="component" xsi:type="string">uiComponent</item>
+                                                    <item name="displayArea" xsi:type="string">place-order-discount</item>
+                                                    <item name="children" xsi:type="array">
+                                                        <item name="discount" xsi:type="array">
+                                                            <item name="component" xsi:type="string">Webkul_OneStepCheckout/js/view/payment/discount</item>
+                                                            <item name="children" xsi:type="array">
+                                                                <item name="errors" xsi:type="array">
+                                                                    <item name="sortOrder" xsi:type="string">0</item>
+                                                                    <item name="component" xsi:type="string">Magento_SalesRule/js/view/payment/discount-messages</item>
+                                                                    <item name="displayArea" xsi:type="string">messages</item>
+                                                                </item>
+                                                                <item name="captcha" xsi:type="array">
+                                                                    <item name="component" xsi:type="string">Magento_SalesRule/js/view/payment/captcha</item>
+                                                                    <item name="displayArea" xsi:type="string">captcha</item>
+                                                                    <item name="formId" xsi:type="string">sales_rule_coupon_request</item>
+                                                                    <item name="configSource" xsi:type="string">checkoutConfig</item>
+                                                                </item>
+                                                            </item>
+                                                        </item>
+                                                    </item>
+                                                </item>
+                                                <item name="before-osc-place-order" xsi:type="array">
+                                                    <item name="component" xsi:type="string">Magento_CheckoutAgreements/js/view/checkout-agreements</item>
+                                                    <item name="displayArea" xsi:type="string">checkout-agreements</item>
+                                                    <item name="dataScope" xsi:type="string">checkoutAgreements</item>
+                                                    <item name="provider" xsi:type="string">checkoutProvider</item>
+                                                </item>
+                                            </item>
+                                        </item>
+                                        <item name="place-order-before-additional" xsi:type="array">
+                                            <item name="component" xsi:type="string">uiComponent</item>
+                                            <item name="displayArea" xsi:type="string">place-order-before-additional</item>
+                                            <item name="provider" xsi:type="string">checkoutProvider</item>
+                                            <item name="children" xsi:type="array">
+                                                <item name="addition-information" xsi:type="array">
+                                                    <item name="component" xsi:type="string">Webkul_OneStepCheckout/js/view/place-order/additional</item>
+                                                    <item name="sortOrder" xsi:type="string">20</item>
+                                                     <item name="config" xsi:type="array">
+                                                        <item name="template" xsi:type="string">Webkul_OneStepCheckout/place-order/additional</item>
+                                                    </item>
+                                                    <item name="children" xsi:type="array">
+                                                        <item name="order-comment" xsi:type="array">
+                                                            <item name="component" xsi:type="string">Webkul_OneStepCheckout/js/view/place-order/additional/comment</item>
+                                                            <item name="sortOrder" xsi:type="string">20</item>
+                                                             <item name="dataScope" xsi:type="string">order_comment</item>
+                                                        </item>
+                                                        <!-- Add more component here -->
+                                                    </item>
+                                                </item>
+                                            </item>
+                                        </item>
+                                        <item name="place-order" xsi:type="array">
+                                            <item name="component" xsi:type="string">Webkul_OneStepCheckout/js/view/place-order</item>
+                                            <item name="displayArea" xsi:type="string">place-order</item>
+                                        </item>
+                                        <item name="place-order-after" xsi:type="array">
+                                            <item name="component" xsi:type="string">uiComponent</item>
+                                            <item name="displayArea" xsi:type="string">place-order-after</item>
+                                            <item name="children" xsi:type="array">
+                                                <!-- before login form fields -->
+                                            </item>
+                                        </item>
+                                    </item>
+                                </item>
+                            </item>
+                        </item>
+                    </item>
+                </argument>
+            </arguments>
+        </referenceBlock>
+    </body>
+</page>

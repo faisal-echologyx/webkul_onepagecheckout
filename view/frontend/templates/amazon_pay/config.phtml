@@ -1,0 +1,18 @@
+<?php /* @var $block \Amazon\Pay\Block\Config */ ?>
+<?php if ($block->isEnabled()): ?>
+<script>
+
+    require (['uiRegistry'], function(registry) {
+        registry.set('amazonPay', <?= /* @noEscape */ \Zend_Json::encode($block->getConfig()); ?>);
+    });
+    <?php
+    $frontName = $block->getRequest()->getFrontName();
+    ?>
+    <?php if (($frontName != 'checkout') && ($frontName != 'onestepcheckout')): ?>
+    require (['Amazon_Pay/js/model/storage'], function(amazonStorage) {
+        amazonStorage.clearAmazonCheckout();
+    });
+    <?php endif; ?>
+
+</script>
+<?php endif ?>

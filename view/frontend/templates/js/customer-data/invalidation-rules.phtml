@@ -1,0 +1,25 @@
+<?php
+$fullAction = $block->getRequest()->getFullActionName();
+if ($fullAction!="checkout_index_index"
+    && $fullAction!="onestepcheckout_index_index"
+    && $fullAction!="checkout_onepage_success"
+) { ?>
+<script type="text/x-magento-init">
+    {
+        "*": {
+            "Magento_Customer/js/invalidation-processor": {
+                "invalidationRules": {
+                    "website-rule": {
+                        "Webkul_OneStepCheckout/js/invalidation-rules/cart": {
+                            "sections": {
+                                "cart": "cart",
+                                "merge-quote": "merge-quote"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+</script>
+<?php } ?>

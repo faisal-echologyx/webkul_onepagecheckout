@@ -1,0 +1,32 @@
+<!--
+/**
+* Webkul Software.
+*
+* @category  Webkul
+* @package   Webkul_OneStepCheckout
+* @author    Webkul
+* @copyright Copyright (c) Webkul Software Private Limited (https://webkul.com)
+* @license   https://store.webkul.com/license.html
+*/
+-->
+<li id="opc-sidebar" class="opc-checkout-oder-summary ">
+  <div class="step-title" data-bind="i18n: 'Order Summary'" data-role="title"></div>
+  <div class="opc-opc-block-summary" >
+
+      <!-- ko foreach: getRegion('summary') -->
+          <!-- ko template: getTemplate() --><!-- /ko -->
+      <!--/ko-->
+
+      <!-- ko foreach: getRegion('place-order-before-additional') -->
+          <!-- ko template: getTemplate() --><!-- /ko -->
+      <!--/ko-->
+
+      <!-- ko foreach: getRegion('place-order') -->
+          <!-- ko template: getTemplate() --><!-- /ko -->
+      <!--/ko-->
+
+      <!-- ko foreach: getRegion('place-order-after') -->
+          <!-- ko template: getTemplate() --><!-- /ko -->
+      <!--/ko-->
+  </div>
+</li>

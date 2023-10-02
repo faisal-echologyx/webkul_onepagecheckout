@@ -1,0 +1,341 @@
+/**
+* Webkul Software.
+*
+* @category  Webkul
+* @package   Webkul_OneStepCheckout
+* @author    Webkul
+* @copyright Copyright (c) Webkul Software Private Limited (https://webkul.com)
+* @license   https://store.webkul.com/license.html
+*/
+
+.wk_address_list{
+    width: 250px;
+}
+
+#wk_all_titles {
+    overflow: hidden;
+}
+
+#wk_shipping_title1{
+    background-color: #1979c3;
+}
+
+#wk_shipping_add1 {
+    display: flex;
+}
+
+.wk_shipping_add_one {
+    padding: 20px;
+    display: none;
+    margin-bottom: 0px;
+}
+
+.wk_shipping_add_overview {
+    margin-left: 14px;
+    margin-top:15px;
+    width:33%
+}
+
+.wk_shipping_method_overview {
+    margin-top: 15px;
+    padding-right: 0px;
+    width: 33%;
+}
+
+.wk_box_items_overview {
+    padding-top: 0px;;
+    width: 33%;
+}
+
+.wk_titles_overview { 
+    padding: 10px;
+    border:1px #1979c3 solid;
+    float: left;
+    text-align: center;
+    width: 140px;
+    cursor: pointer;
+}
+
+.wk_add_content { 
+    border: 1px solid;
+}
+
+.selected_tab{
+    background-color: #1979c3;
+}
+
+.wk_each_title{
+    color: white;
+}
+
+.input-text .qty{
+    width: 42px;
+}
+
+.wk_add_product a{
+    font-size: 13px;
+}
+
+.wk_open_ship_title{
+    /* display: none; */
+}
+
+.wk_close_ship_title{
+    /* display: none; */
+}
+
+.wk_open_ship_content{
+    display: block;
+}
+
+.wk_close_ship_content{
+    display: none;
+}
+
+.wk_each_ship_add{
+    width: 97%;
+    border: 1px solid #1979c3;
+}
+
+.wk_ship_title { 
+    cursor: pointer;
+    margin-bottom: 0px !important;
+    width: 95%;
+    border: 1px solid #1979c3;
+    background-color: #1979c3;
+    padding: 10px;
+}
+
+.wk_ship_content { 
+    padding: 10px;
+    /* border: 1px solid #1979c3; */
+}
+
+.wk_address_font {
+    font-size: 14px;
+    font-weight: 500;
+    width: 300px;
+}
+
+.wk_ship_item {
+    /* display: flex; */
+}
+
+.wk_box_box-shipping-method{
+    margin-right: 7px;
+    width: 80%;
+}
+
+.wk_ship_item {
+    display: flex;
+    margin-top: 15px;
+}
+
+/* .wk_box-billing-address {
+    width:30%;
+    float:left;
+    border:2px solid;
+}
+
+.wk_block-billing_all{
+    width: 100%;
+} */
+
+.popup-authentication .modal-inner-wrap {
+    width: 30%;
+}
+
+.wk_box-billing-address {
+    padding: 15px;
+}
+
+.select_box_billing_address{
+    border: 4px solid #ff5501;
+}
+
+.unselect_box_billing_address{
+    border: 1px solid #ccc;
+}
+
+.multishipping-billing-form{
+    width: 32%;
+    float: left;
+    margin-left: 10px;
+}
+
+.wk_display_none{
+    display: none !important;
+}
+
+.wk_display_block{
+    display: block !important;
+}
+
+.wk_display_flex{
+    display: block !important;
+}
+
+.fa_icon_dropdown_size{
+    font-size: 30px;;
+}
+
+.font-awesome-dropdown{
+    display: inline-block;
+}
+
+.each_address_font{
+    color: white !important;
+}
+
+.wk-loader {
+    background: url("../images/ajax-loader.gif") repeat scroll 0 0 rgba(0, 0, 0, 0);
+    height: 32px;
+    left: 50%;
+    margin-left: -16px;
+    margin-top: -16px;
+    position: absolute;
+    top: 50%;
+    width: 32px;
+}
+.wk-loading-mask {
+    background: none repeat scroll 0 0 rgba(255, 255, 255, 0.62);
+    height: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    z-index: 9999;
+}
+
+.wk-display-none {
+    display: none;
+}
+
+.wk_osc_title {
+    text-align: center;
+    padding: 10px;
+    border: 1px solid #1979c3;
+    background-color: #1979c3;
+    font-size: 20px;
+    color:white;
+    margin-bottom: 20px;
+}
+/* #multishipping-billing-form{
+    margin-left: 10px;
+    width:32%;
+    float:left;
+} */
+#wk_osc_billing_div { 
+    width: 30%;
+    margin-right: 0px;
+    margin-left: 10px;
+    float: left;
+
+}
+
+.page .messages{
+    display: none;
+}
+
+#checkout_multishipping_form {
+    height: 300px;
+    overflow-x:hidden;
+}
+
+#shipping_method_form{
+    overflow-x:hidden;
+    height: 300px;
+}
+
+.checkout-agreements-block {
+    
+    /* margin-bottom: -33px; */
+    position: relative;
+    bottom: 6px;
+    display: inline-block;
+    width: 100%;
+    bottom: 178px;
+
+}
+
+@media screen and (max-width: 925px) {
+    #wk_osc_address_div {
+      float: none;
+      width: 100% !important;
+    }
+
+    #checkout_multishipping_form {
+        height : 300px !important;
+    }
+  
+    #wk_osc_shipping_div {
+        margin-top : 20px !important;
+        width:48% !important;
+    }
+
+    #shipping_method_form {
+        height : 100% !important;
+    }
+  
+    #wk_osc_billing_div {
+        margin-top:20px !important;
+        width : 48% !important;
+    }
+    .table-order-review {
+        font-size:10px;
+    }
+    .order-review-wrapper{
+        margin-left : -22% !important;
+    }
+    .wk_shipping_method_overview {
+        margin-left : -4%;
+    }
+    .wk_shipping_add_overview {
+        margin-left : -7px;
+        font-size : 12px;
+    }
+}
+
+@media screen and (max-width: 690px) {
+    #wk_osc_shipping_div {
+        margin-top : 20px !important;
+        width:97% !important;
+    }
+  
+    #wk_osc_billing_div {
+        margin-top:20px !important;
+        width : 95% !important;
+    }
+
+    #checkout_multishipping_form {
+        height : 216px !important;
+    }
+
+    #shipping_method_form {
+        height : 100% !important;
+    }
+    #wk_osc_shipping_div {
+        margin-bottom : 10px !important;
+    }
+    .wk_shipping_add_one { 
+        display : block !important;
+    }
+    .wk_shipping_add_overview {
+        width: 100%;
+    }
+    .wk_shipping_method_overview {
+        width: 100%;
+    }
+    .wk_box_items_overview {
+        margin-right: 0px;
+        width: 100%;
+        margin-left: 20%;
+    }
+    #wk_all_titles {
+        display: none;
+    }
+    .wk_address_font {
+        width: 100%;
+    }
+    
+}

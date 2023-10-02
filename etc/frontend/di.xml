@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Webkul Software.
+ *
+ * @category  Webkul
+ * @package   Webkul_OneStepCheckout
+ * @author    Webkul
+ * @copyright Copyright (c) Webkul Software Private Limited (https://webkul.com)
+ * @license   https://store.webkul.com/license.html
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Module/etc/module.xsd">
+    <type name="Magento\Checkout\Controller\Index\Index">
+        <plugin name="oscpageexecute" type="Webkul\OneStepCheckout\Plugin\Controller\Checkout\Index\Index" sortOrder="1" />
+    </type>
+    <type name="Magento\Multishipping\Controller\Checkout\Index">
+        <plugin name="oscMultiAddressPageExecute" type="Webkul\OneStepCheckout\Plugin\Controller\Multishipping\Checkout\Index" sortOrder="1" />
+    </type>
+    <type name="Magento\Checkout\Model\Cart">
+        <plugin name="Magento\Checkout\Model\Cart::addProduct" type="Webkul\OneStepCheckout\Plugin\Model\Checkout\Cart" sortOrder="1" />
+    </type>
+    <type name="Magento\Catalog\Helper\Product">
+        <plugin name="Magento\Catalog\Helper\Product::addParamsToBuyRequest" type="Webkul\OneStepCheckout\Plugin\Catalog\Helper\Product" sortOrder="1" />
+    </type>
+    <type name="Magento\Checkout\Block\Checkout\LayoutProcessor">
+        <plugin name="add_custom_field_checkout_form" type="Webkul\OneStepCheckout\Plugin\Block\Checkout\LayoutProcessor" sortOrder="100"/>
+    </type>
+    <type name="Magento\Customer\CustomerData\SectionPoolInterface">
+        <arguments>
+            <argument name="sectionSourceMap" xsi:type="array">
+                <item name="merge-quote" xsi:type="string">Webkul\OneStepCheckout\CustomerData\MergeQuote</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Magento\Checkout\Block\Onepage">
+        <arguments>
+            <argument name="layoutProcessors" xsi:type="array">
+                <item name="billingAddressUpdate" xsi:type="object">Webkul\OneStepCheckout\Block\Checkout\LayoutProcessor</item>
+            </argument>
+        </arguments>
+    </type>
+     <preference for="Magento\Customer\Block\Address\Edit" type="Webkul\OneStepCheckout\Block\Customer\Address\Edit" />
+     <type name="Magento\Checkout\Model\CompositeConfigProvider">
+        <arguments>
+            <argument name="configProviders" xsi:type="array">
+                <item name="opc_config_provider" xsi:type="object">Webkul\OneStepCheckout\Model\DefaultConfigProvider</item>
+            </argument>
+        </arguments>
+    </type>
+</config>

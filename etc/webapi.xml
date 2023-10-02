@@ -1,0 +1,39 @@
+<?xml version="1.0" ?>
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Webapi:etc/webapi.xsd">
+	 <!-- Managing item update information -->
+    <route url="/V1/guest-carts/:cartId/update-cart" method="POST">
+        <service class="Webkul\OneStepCheckout\Api\CartManagementInterface" method="updateGuestCart"/>
+        <resources>
+            <resource ref="anonymous" />
+        </resources>
+    </route>
+
+    <!-- Managing My item update information -->
+    <route url="/V1/carts/mine/update-cart" method="POST">
+        <service class="Webkul\OneStepCheckout\Api\CartManagementInterface" method="updateCart"/>
+        <resources>
+            <resource ref="self" />
+        </resources>
+        <data>
+            <parameter name="cartId" force="true">%cart_id%</parameter>
+        </data>
+    </route>
+    <!-- Managing My shipping information -->
+    <route url="/V1/opc-carts/mine/total-information" method="POST">
+        <service class="Webkul\OneStepCheckout\Api\ShippingInformationManagementInterface" method="getTotalInformation"/>
+        <resources>
+            <resource ref="self" />
+        </resources>
+        <data>
+            <parameter name="cartId" force="true">%cart_id%</parameter>
+        </data>
+    </route>
+
+    <!-- Managing shipping information-->
+    <route url="/V1/opc-guest-carts/:cartId/total-information" method="POST">
+        <service class="Webkul\OneStepCheckout\Api\GuestShippingInformationManagementInterface" method="getTotalInformation"/>
+        <resources>
+            <resource ref="anonymous" />
+        </resources>
+    </route>
+</routes>

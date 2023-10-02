@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<!--
+/**
+* Webkul Software.
+*
+* @category  Webkul
+* @package   Webkul_OneStepCheckout
+* @author    Webkul
+* @copyright Copyright (c) Webkul Software Private Limited (https://webkul.com)
+* @license   https://store.webkul.com/license.html
+*/
+-->
+<page layout="1column" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+	<head>
+        <css src="Webkul_OneStepCheckout::css/buynow.css"/>
+    </head>
+	<body>
+        <referenceBlock name="product.info.addtocart">
+            <block name="product.info.addtocart.buynow" class="Magento\Catalog\Block\Product\View" template="Webkul_OneStepCheckout::catalog/product/buynow.phtml" ifconfig="opc/general_settings/active" before="-">
+                <arguments>
+                    <argument name="jsLayout" xsi:type="array">
+                        <item name="components" xsi:type="array">
+                            <item name="buy-now" xsi:type="array">
+                                <item name="component" xsi:type="string">Webkul_OneStepCheckout/js/view/buy-now</item>
+                                <item name="config" xsi:type="array">
+                                    <item name="template" xsi:type="string">Webkul_OneStepCheckout/buy-now</item>
+                                </item>
+                            </item>
+                        </item>
+                    </argument>
+                </arguments>
+            </block>
+        </referenceBlock>
+        <referenceBlock name="product.info.addtocart.additional">
+            <block name="product.info.addtocart.buynow.additional" class="Magento\Catalog\Block\Product\View" template="Webkul_OneStepCheckout::catalog/product/buynow.phtml" ifconfig="opc/general_settings/active" before="-">
+                <arguments>
+                    <argument name="jsLayout" xsi:type="array">
+                        <item name="components" xsi:type="array">
+                            <item name="buy-now" xsi:type="array">
+                                <item name="component" xsi:type="string">Webkul_OneStepCheckout/js/view/buy-now</item>
+                                <item name="config" xsi:type="array">
+                                    <item name="template" xsi:type="string">Webkul_OneStepCheckout/buy-now</item>
+                                </item>
+                            </item>
+                        </item>
+                    </argument>
+                </arguments>
+            </block>
+        </referenceBlock>
+    </body>
+</page>

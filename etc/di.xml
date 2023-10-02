@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<!--
+/**
+* Webkul Software.
+*
+* @category  Webkul
+* @package   Webkul_OneStepCheckout
+* @author    Webkul
+* @copyright Copyright (c) Webkul Software Private Limited (https://webkul.com)
+* @license   https://store.webkul.com/license.html
+*/
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Module/etc/module.xsd">
+    <preference for="Webkul\OneStepCheckout\Api\CartManagementInterface" type="Webkul\OneStepCheckout\Model\CartManagement" />
+    <preference for="Webkul\OneStepCheckout\Api\ShippingInformationManagementInterface" type="Webkul\OneStepCheckout\Model\ShippingInformationManagement" />
+    <preference for="Webkul\OneStepCheckout\Api\GuestShippingInformationManagementInterface" type="Webkul\OneStepCheckout\Model\GuestShippingInformationManagement" />
+    <type name="Magento\Checkout\Model\ShippingInformationManagement">
+        <plugin name="gst_number_save_shipping" type="Webkul\OneStepCheckout\Plugin\Model\Checkout\ShippingInformationManagement" sortOrder="1"/>
+    </type>
+    <type name="Magento\Checkout\Model\PaymentInformationManagement">
+        <plugin name="gst_number_save_billing" type="Webkul\OneStepCheckout\Plugin\Model\Checkout\PaymentInformationManagement" sortOrder="1"/>
+    </type>
+    <type name="Magento\Checkout\Model\GuestPaymentInformationManagement">
+        <plugin name="guest_gst_number_save_billing" type="Webkul\OneStepCheckout\Plugin\Model\Checkout\GuestPaymentInformationManagement" sortOrder="1"/>
+    </type>
+    <type name="Magento\Quote\Model\ShippingAddressManagement">
+        <plugin disabled="false" name="Webkul_Plugin_Magento_Quote_Model_ShippingAddressManagement" sortOrder="10" type="Webkul\OneStepCheckout\Plugin\Model\Quote\ShippingAddressManagement"/>
+    </type>
+        <!-- <type name="Magento\Customer\Block\Address\Edit">
+        <plugin name="module_catalog_category_view_override_template" type="Webkul\OneStepCheckout\Plugin\Customer\Block\Address\Edit" />
+    </type> -->
+    <type name="Webkul\OneStepCheckout\Logger\Logger">
+        <arguments>
+            <argument name="name" xsi:type="string">onestepcheckout</argument>
+            <argument name="handlers"  xsi:type="array">
+                <item name="system" xsi:type="object">Webkul\OneStepCheckout\Logger\Handler</item>
+            </argument>
+        </arguments>
+    </type>
+    <preference for="Magento\Checkout\Controller\Cart\UpdateItemOptions" type="Webkul\OneStepCheckout\Controller\Cart\UpdateItemOptions" />
+</config>

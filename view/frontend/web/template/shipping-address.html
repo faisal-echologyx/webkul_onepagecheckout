@@ -1,0 +1,51 @@
+<div id="shipping" class="checkout-shipping-address" data-bind="fadeVisible: visible()">
+    <div id="checkout-step-shipping"
+         class="step-content"
+         data-role="content">
+         <if args="!isCustomerLoggedIn()">
+            <div class="opc-group customer-group form-row colps-group">
+                <div if="!quoteIsVirtual" class="step-title colps-title" translate="'Create Account'" data-role="title" />
+                <div class="colps-content">
+                    <each if="!quoteIsVirtual" args="getRegion('customer-email')" render="" />
+                    <each args="getRegion('after-login-form')" render="" />
+                </div>
+            </div>
+         </if>
+         <!-- added to make compatible with amzn pay -->
+         <if args="isCustomerLoggedIn()">
+            <if args="isAmazonPayEnable">
+                <div class="opc-group customer-group form-row colps-group">
+                    <div class="colps-content">
+                        <each if="!quoteIsVirtual" args="getRegion('customer-email')" render="" />
+                        <each args="getRegion('after-login-form')" render="" />
+                    </div>
+                </div>
+            </if>
+        </if>
+        <div class="opc-group form-row colps-group">
+            <div class="step-title colps-title" translate="'Shipping Address'" data-role="title" />
+            <div class="colps-content">
+                <each args="getRegion('address-list')" render="" />
+                <each args="getRegion('address-list-additional-addresses')" render="" />
+                <each args="getRegion('before-form')" render="" />
+                <!-- Address form pop up -->
+                <if args="!isFormInline">
+                    <div class="new-address-popup">
+                        <button type="button"
+                                class="action action-show-popup"
+                                click="showFormPopUp"
+                                visible="!isNewAddressAdded()">
+                            <span translate="'New Address'" />
+                        </button>
+                    </div>
+                    <div id="opc-new-shipping-address"
+                        visible="isFormPopUpVisible()"
+                        render="shippingFormTemplate" />
+                </if>
+                <!-- Inline address form -->
+                <render if="isFormInline" args="shippingFormTemplate" />
+            </div>
+
+        </div>
+    </div>
+</div>

@@ -1,0 +1,49 @@
+<?php
+/**
+ * Webkul Software.
+ *
+ * @category  Webkul
+ * @package   Webkul_OneStepCheckout
+ * @author    Webkul
+ * @copyright Copyright (c) Webkul Software Private Limited (https://webkul.com)
+ * @license   https://store.webkul.com/license.html
+ */
+?>
+<?php $oscHelper = $block->getLayout()->createBlock(
+    \Webkul\OneStepCheckout\Block\OneStepCheckout::class
+)->getOscHelper(); ?>
+<div id="checkout" data-bind="scope:'checkout'" class="opc-onepage-checkout-container checkout-container">
+    <div id="checkout-loader" data-role="checkout-loader" class="loading-mask" data-mage-init='{"checkoutLoader": {}}'>
+        <div class="loader">
+            <img src="<?= $block->escapeUrl($block->getViewFileUrl('images/loader-1.gif')) ?>"
+                 alt="<?= $block->escapeHtmlAttr(__('Loading...')); ?>"
+                 style="position: absolute;">
+        </div>
+    </div>
+    <!-- ko template: getTemplate() --><!-- /ko -->
+    <script type="text/x-magento-init">
+        {
+            "#checkout": {
+                "Magento_Ui/js/core/app": <?= /* @noEscape */ $block->getJsLayout();?>
+            }
+        }
+    </script>
+    <script>
+        window.checkoutConfig = <?= /* @escapeNotVerified */ \Zend_Json::encode($block->getCheckoutConfig()); ?>;
+        // Create aliases for customer.js model from customer module
+        window.isCustomerLoggedIn = window.checkoutConfig.isCustomerLoggedIn;
+        window.customerData = window.checkoutConfig.customerData;
+        window.checkoutConfig.activeModule = <?=
+        /* @escapeNotVerified */ \Zend_Json::encode($oscHelper->isActiveModule());
+        ?>;
+    </script>
+    <script>
+        require([
+            'mage/url',
+            'Magento_Ui/js/block-loader'
+        ], function(url, blockLoader) {
+            blockLoader("<?= $block->escapeUrl($block->getViewFileUrl('images/loader-1.gif')) ?>");
+            return url.setBaseUrl('<?= $block->escapeUrl($block->getBaseUrl());?>');
+        })
+    </script>
+</div>

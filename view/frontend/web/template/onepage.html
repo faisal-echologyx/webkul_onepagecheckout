@@ -1,0 +1,40 @@
+<!--
+/**
+* Webkul Software.
+*
+* @category  Webkul
+* @package   Webkul_OneStepCheckout
+* @author    Webkul
+* @copyright Copyright (c) Webkul Software Private Limited (https://webkul.com)
+* @license   https://store.webkul.com/license.html
+*/
+-->
+<!-- ko foreach: getRegion('authentication') -->
+<!-- ko template: getTemplate() --><!-- /ko -->
+<!--/ko-->
+
+<!-- ko foreach: getRegion('progressBar') -->
+<!-- ko template: getTemplate() --><!-- /ko -->
+<!--/ko-->
+
+<!-- ko foreach: getRegion('estimation') -->
+    <!-- ko template: getTemplate() --><!-- /ko -->
+<!--/ko-->
+
+<!-- ko foreach: getRegion('messages') -->
+    <!-- ko template: getTemplate() --><!-- /ko -->
+<!--/ko-->
+<div class="opc-wrapper opc-one-page-checkout-wrapper">
+    <ol class="opc opc-one-page-checkout-steps" id="checkoutSteps">
+    <!-- ko foreach: getRegion('steps') -->
+        <!-- ko template: getTemplate() --><!-- /ko -->
+    <!--/ko-->
+    </ol>
+</div>
+<div class="opc-wrapper opc-one-page-checkout-sidebar">
+    <ol class="opc opc-one-page-checkout-steps">
+    <!-- ko foreach: getRegion('sidebar') -->
+        <!-- ko template: getTemplate() --><!-- /ko -->
+    <!--/ko-->
+    </ol>
+</div>
